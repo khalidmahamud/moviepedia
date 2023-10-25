@@ -4,6 +4,7 @@ import { Card } from "../components";
 export const MovieList = ({ param }) => {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const url = `https://api.themoviedb.org/3/${param}?api_key=${API_KEY}`;
+    
     const { data:movies } = useFetch(url);
 
     return (
