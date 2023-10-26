@@ -9,7 +9,7 @@ export const AllRoutes = ({ searchParam, setSearchParam }) => {
                 <Route path='movie/popular' element={<MovieList apiPath="movie/popular" title="Popular" />} />
                 <Route path='movie/top' element={<MovieList apiPath="movie/top_rated" title="Top Rated" />} />
                 <Route path='movie/upcoming' element={<MovieList apiPath="movie/upcoming" title="Upcoming" />} />
-                <Route path='movie/:id' element={<MovieDetail apiPath="movie/" />} />
+                <Route path='movie/:id' element={<MovieDetail />} />
                 <Route path='search' element={<Search apiPath="search/movie" searchParam={searchParam} setSearchParam={setSearchParam} />} />
                 <Route path='*' element={<PageNotFound />} />
             </Routes>

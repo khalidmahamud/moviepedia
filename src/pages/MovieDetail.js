@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { useTitle } from "../hooks/useTitle";
 
-export const MovieDetail = ({ apiPath }) => {
+export const MovieDetail = () => {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const param = useParams();
 
-    const url = `https://api.themoviedb.org/3/${apiPath}${param.id}?api_key=${API_KEY}`;
+    const url = `https://api.themoviedb.org/3/movie/${param.id}?api_key=${API_KEY}`;
     
     const { data: movie } = useFetch(url);
     const {original_title, overview, poster_path, genres, vote_average, vote_count, runtime, budget, revenue, release_date, imdb_id} = movie;
