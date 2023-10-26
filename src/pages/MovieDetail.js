@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { useTitle } from "../hooks/useTitle";
@@ -10,7 +9,7 @@ export const MovieDetail = ({ apiPath }) => {
     const url = `https://api.themoviedb.org/3/${apiPath}${param.id}?api_key=${API_KEY}`;
     
     const { data: movie } = useFetch(url);
-    const {id, original_title, overview, poster_path, genres, vote_average, vote_count, runtime, budget, revenue, release_date, imdb_id} = movie;
+    const {original_title, overview, poster_path, genres, vote_average, vote_count, runtime, budget, revenue, release_date, imdb_id} = movie;
 
     const image = `https://image.tmdb.org/t/p/w500${poster_path}`
 
