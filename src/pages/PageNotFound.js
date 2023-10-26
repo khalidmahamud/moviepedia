@@ -1,4 +1,8 @@
+import { useTitle } from "../hooks/useTitle";
+
 export const PageNotFound = () => {
+    useTitle('404!')
+
     return (
         <main>
             <section className="fixed top-0 left-0 w-full h-full flex justify-center items-center p-5 bg-slate-100 dark:bg-gray-700">

@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { useTitle } from "../hooks/useTitle";
 import { Card } from "../components";
 
 export const Search = ({ apiPath, searchParam, setSearchParam }) => {
@@ -13,11 +14,13 @@ export const Search = ({ apiPath, searchParam, setSearchParam }) => {
     const { data } = useFetch(url);
     const movies = data.results;
 
+    useTitle(`Search results for ${searchParam}`);
+
     return (
         <main>
             <section className="max-w-7xl mx-auto py-7">
                 <div>
-                    <p className="text-3xl text-gray-900 dark:text-white mx-2 mb-10">{movies.length ? `Results for '${searchParam}'` : `No Results for '${searchParam}'`}</p>
+                    <p className="text-3xl text-gray-900 dark:text-white mx-2 mb-10">{movies ? `Results for '${searchParam}'` : `No Results for '${searchParam}'`}</p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-5">
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { useTitle } from "../hooks/useTitle";
 
 export const MovieDetail = ({ apiPath }) => {
     const API_KEY = process.env.REACT_APP_API_KEY;
@@ -12,6 +13,8 @@ export const MovieDetail = ({ apiPath }) => {
     const {id, original_title, overview, poster_path, genres, vote_average, vote_count, runtime, budget, revenue, release_date, imdb_id} = movie;
 
     const image = `https://image.tmdb.org/t/p/w500${poster_path}`
+
+    useTitle(original_title);
 
     return (
         <main>
@@ -25,7 +28,7 @@ export const MovieDetail = ({ apiPath }) => {
                     <div className="flex gap-3 my-4">
                         {
                             genres && genres.map((genre) => (
-                                <div className="border border-gray-400 p-3 rounded-md text-gray-700 dark:text-slate-200">
+                                <div key={genre.id} className="border border-gray-400 p-3 rounded-md text-gray-700 dark:text-slate-200">
                                     {genre.name}
                                 </div>
                             ))
@@ -33,7 +36,7 @@ export const MovieDetail = ({ apiPath }) => {
                     </div>
                     <p className="flex items-center gap-2 text-xl text-gray-700 dark:text-slate-200">
                         <span>⭐</span>{vote_average}
-                        <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                        <span className="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
                         {vote_count}<span className="text-lg">{vote_count === 1 ? ` review` : ` reviews`}</span>
                     </p>
                     <p className="text-gray-900 dark:text-white text-xl font-semibold mt-2">Runtime: <span className="text-lg text-gray-700 dark:text-slate-200 font-normal">{runtime} mins</span></p>
