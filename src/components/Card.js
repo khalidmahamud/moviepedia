@@ -9,7 +9,7 @@ export const Card = ({ movie }) => {
             <Link to={`/movie/${id}`}>
                 <img className="rounded-t-lg" src={image} alt={original_title} />
             </Link>
-            <div className="p-5">
+            <div className="p-"4>
                 <Link to={`/movie/${id}`}>
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{original_title}</h5>
                 </Link>
